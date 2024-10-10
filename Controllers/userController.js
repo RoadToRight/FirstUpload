@@ -20,6 +20,12 @@ export const register = catchAsyncErrors(async (req, res, next) => {
     }
      try{
           let CreateUser = await User.create({nickname:"sam",name:"hello",email_verified,email,auth0Id})
+          if(CreateUser){
+            res.status(200).json({
+                success:true,
+                message:"User Registered!"
+              })
+        }
      }catch(e){
           res.status(200).json({
         success: true,
