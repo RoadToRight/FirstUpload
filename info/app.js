@@ -64,6 +64,10 @@ app.get("/verify",verifyJWT,(req,res) => {
   console.log(req.user)
   res.send("Hello")
 })
+app.get("/",(req,res) => {
+  
+  res.send({success:true,message:"hogaya"})
+})
 
 
 app.use(cookieParser())
