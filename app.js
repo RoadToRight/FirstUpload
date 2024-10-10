@@ -65,7 +65,10 @@ app.get("/verify",verifyJWT,(req,res) => {
   res.send("Hello")
 })
 
-
+app.get("/",(req,res) => {
+  
+  res.send({messgae:"Hello"})
+})
 app.use(cookieParser())
 app.use("/api/user",userRouter)
 
