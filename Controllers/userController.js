@@ -34,10 +34,10 @@ export const register = catchAsyncErrors(async (req, res, next) => {
     // const emailRegisterVerify = `${process.env.DASHBOARD_URL}/emailRegister/verify/${token}`
     // sendEmail(email, emailRegisterVerify)
 
-    // res.status(200).json({
-    //     success: true,
-    //     message: `Email Sent To ${email}`
-    // })
+    res.status(200).json({
+        success: true,
+        message: `Email Sent To ${email}`
+    })
 
 
 
