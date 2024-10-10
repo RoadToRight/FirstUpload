@@ -18,9 +18,16 @@ export const register = catchAsyncErrors(async (req, res, next) => {
     if (!auth0Id || !email || !name) {
         return next(new ErrorHandler("Email Name And Authentication Required!"))
     }
-      let CreateUser = await User.create({ auth0Id,email, name,email_verified,nickname,picture,created_at})
+     try{
+          let CreateUser = await User.create({name:"Hello"})
+     }catch(e){
+          res.status(200).json({
+        success: true,
+        message: `${e}`
+    })
+     }
       
-     
+         
         // if(CreateUser){
         //     res.status(200).json({
         //         success:true,
