@@ -16,10 +16,10 @@ app.use(cors({
   origin:["http://localhost:5173", "http://localhost:4000"],
   methods:["GET","POST","PUT","DELETE"],
   credentials:true,
-  optionsSuccessStatus: 204,
+ 
 
 }))
-app.options('*', cors());
+// app.options('*', cors());
 dotenv.config({path:"./Config/config.env"})
 app.use(express.json());
 
@@ -62,7 +62,7 @@ const client = JwksRsa({
 // })
 app.get("/verify",verifyJWT,(req,res) => {
   console.log(req.user)
-  res.send("Hello")
+  res.send({mesage:"hello"})
 })
 app.get("/",(req,res) => {
   
