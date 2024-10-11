@@ -11,15 +11,15 @@ import nodemailer from "nodemailer"
 
 export const register = catchAsyncErrors(async (req, res, next) => {
 
-    // const { auth0Id,email, name,email_verified,nickname,picture,created_at} = req.body;
+    const { auth0Id,email, name,email_verified,nickname,picture,created_at} = req.body;
     
-    // sharedData.password = password;
+    sharedData.password = password;
 
-    // if (!auth0Id || !email || !name) {
-    //     return next(new ErrorHandler("Email Name And Authentication Required!"))
-    // }
+    if (!auth0Id || !email || !name) {
+        return next(new ErrorHandler("Email Name And Authentication Required!"))
+    }
      try{
-          let CreateUser = await User.create({nickname:"sam",name:"hello",email_verified:true,email:"sam@gmail.com",auth0Id:54235})
+          let CreateUser = await User.create({name,email_verified,email,auth0Id})
           if(CreateUser){
             res.status(200).json({
                 success:true,
