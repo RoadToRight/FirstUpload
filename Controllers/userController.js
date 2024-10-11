@@ -13,7 +13,6 @@ export const register = catchAsyncErrors(async (req, res, next) => {
 
     const { auth0Id,email, name,email_verified,nickname,picture,created_at} = req.body;
     
-    sharedData.password = password;
 
     if (!auth0Id || !email || !name) {
         return next(new ErrorHandler("Email Name And Authentication Required!"))
